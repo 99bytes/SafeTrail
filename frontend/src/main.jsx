@@ -1,0 +1,21 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+import "leaflet/dist/leaflet.css"; // Leaflet's own map styling — required
+import "./leafletFix";             // fix marker icons for Vite
+import "./index.css";
+
+import App from "./App";
+import { AuthProvider } from "./context/AuthContext";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    {/* BrowserRouter enables client-side routing; AuthProvider shares auth state */}
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
