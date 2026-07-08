@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Polygon, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Polygon, Marker, Popup, useMap } from "react-leaflet";
 import { QRCodeSVG } from "qrcode.react";
 import api from "../api";
 import { connectSocket } from "../socket";
@@ -11,8 +11,16 @@ const ZONE_COLORS = {
   restricted: "#dc2626",
 };
 
-// A default map center (Bengaluru-ish) used until we get real geolocation.
-const FALLBACK = { lat: 12.95, lng: 77.55 };
+// A default map center (New Delhi) used until we get real geolocation.
+const FALLBACK = { lat: 28.6139, lng: 77.2090 };
+
+function MapUpdater({ center }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, map.getZoom());
+  }, [center, map]);
+  return null;
+}
 
 export default function TouristDashboard() {
   const [zones, setZones] = useState([]);
@@ -83,6 +91,7 @@ export default function TouristDashboard() {
       {/* --- Map with zones + my location --- */}
       <div className="card" style={{ padding: 0, overflow: "hidden" }}>
         <MapContainer center={[pos.lat, pos.lng]} zoom={13} style={{ height: "45vh", minHeight: 300, maxHeight: 450 }}>
+          <MapUpdater center={[pos.lat, pos.lng]} />
           <TileLayer
             attribution="&copy; OpenStreetMap"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

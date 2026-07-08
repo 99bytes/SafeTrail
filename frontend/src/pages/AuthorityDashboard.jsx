@@ -178,7 +178,7 @@ export default function AuthorityDashboard() {
 
       {/* --- Live map --- */}
       <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-        <MapContainer center={[12.95, 77.55]} zoom={12} style={{ height: "45vh", minHeight: 300, maxHeight: 450 }}>
+        <MapContainer center={[28.6139, 77.2090]} zoom={12} style={{ height: "45vh", minHeight: 300, maxHeight: 450 }}>
           <TileLayer
             attribution="&copy; OpenStreetMap"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
