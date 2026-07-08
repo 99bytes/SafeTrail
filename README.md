@@ -4,7 +4,7 @@
 
 It bridges the gap between tourists and park authorities by providing real-time location tracking, dynamic SOS alerts, and verifiable digital identities.
 
-Live Link --  https://safetrail-1-vz96.onrender.com/login
+Live Link --  https://safetrail-1-vz96.onrender.com
 
 ---
 
