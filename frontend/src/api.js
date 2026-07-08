@@ -2,7 +2,7 @@ import axios from "axios";
 
 // One axios instance for the whole app. baseURL points at our Express API.
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
 });
 
 // Before every request, attach the JWT from localStorage (if logged in).
